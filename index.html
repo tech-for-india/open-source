@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech For India - Free Projects for Everyone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .github-link {
+            background: #24292e;
+        }
+
+        .github-link:hover {
+            background: #2f363d;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Tech For India</h1>
+            <p class="subtitle">Free Projects for Everyone</p>
+            <p>Empowering developers with open-source solutions</p>
+        </header>
+
+        <div class="main-content">
+            <div class="section">
+                <h2>About This Project</h2>
+                <p>Welcome to <strong>Tech For India</strong> - a collection of free, open-source projects designed to help developers, students, and tech enthusiasts learn, grow, and contribute to the global technology community.</p>
+                <p>Our mission is to provide accessible, high-quality code examples and complete projects that anyone can use, modify, and learn from.</p>
+            </div>
+
+            <div class="section">
+                <h2>What You'll Find Here</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>🎯 Complete Projects</h3>
+                        <p>Full-stack applications, web apps, mobile apps, and more ready to use and customize.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📚 Learning Resources</h3>
+                        <p>Step-by-step tutorials, documentation, and best practices for various technologies.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🔧 Code Examples</h3>
+                        <p>Reusable code snippets, components, and utilities for common development tasks.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🌍 Open Source</h3>
+                        <p>All projects are open source, allowing you to contribute, fork, and distribute freely.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Technologies Covered</h2>
+                <p>Our projects span across various technologies and frameworks:</p>
+                <ul style="list-style: none; padding: 20px 0;">
+                    <li style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 8px;">🌐 <strong>Web Development:</strong> HTML, CSS, JavaScript, React, Vue, Angular</li>
+                    <li style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 8px;">⚙️ <strong>Backend:</strong> Node.js, Python, Java, PHP, .NET</li>
+                    <li style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 8px;">📱 <strong>Mobile:</strong> React Native, Flutter, Native Android/iOS</li>
+                    <li style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 8px;">�� <strong>AI/ML:</strong> Python, TensorFlow, PyTorch, Scikit-learn</li>
+                    <li style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 8px;">☁️ <strong>Cloud:</strong> AWS, Azure, Google Cloud, Docker, Kubernetes</li>
+                </ul>
+            </div>
+
+            <div class="section" style="text-align: center;">
+                <h2>Get Started</h2>
+                <p>Ready to explore our projects? Start by browsing our repository and find something that interests you!</p>
+                <a href="#" class="cta-button github-link">📁 Browse Projects</a>
+                <a href="#" class="cta-button">🤝 Contribute</a>
+            </div>
+
+            <div class="section">
+                <h2>How to Contribute</h2>
+                <p>We welcome contributions from developers of all skill levels! Here's how you can help:</p>
+                <ol style="padding-left: 20px; margin: 20px 0;">
+                    <li style="margin: 10px 0;"><strong>Fork the repository</strong> and create your own copy</li>
+                    <li style="margin: 10px 0;"><strong>Create a new branch</strong> for your feature or fix</li>
+                    <li style="margin: 10px 0;"><strong>Make your changes</strong> and test thoroughly</li>
+                    <li style="margin: 10px 0;"><strong>Submit a pull request</strong> with a clear description</li>
+                    <li style="margin: 10px 0;"><strong>Join our community</strong> discussions and help others</li>
+                </ol>
+            </div>
+        </div>
+
+        <footer>
+            <p>Made with ❤️ for the global tech community</p>
+            <p>© 2024 Tech For India. All projects are open source and free to use.</p>
+            <div class="social-links">
+                <a href="#" title="GitHub">📦</a>
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="LinkedIn">💼</a>
+                <a href="#" title="Discord">💬</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
