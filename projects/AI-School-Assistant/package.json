@@ -1,0 +1,37 @@
+{
+  "name": "ai-school-assistant",
+  "version": "1.0.0",
+  "description": "A lightweight, self-hosted AI chat system for schools",
+  "author": "Shekhar Bhattacharya (for techies only)",
+  "license": "Free for Non-Profit schools and educational institutes",
+  "private": true,
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter server dev\" \"pnpm --filter web dev\"",
+    "build": "pnpm --filter server build && pnpm --filter web build",
+    "start": "pnpm --filter server start",
+    "install:all": "pnpm install && cd server && pnpm install && cd ../web && pnpm install",
+    "db:migrate": "cd server && pnpm prisma migrate dev",
+    "db:seed": "cd server && pnpm run seed",
+    "db:studio": "cd server && pnpm prisma studio"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "ai",
+    "chat",
+    "school",
+    "education",
+    "openai",
+    "local",
+    "lan"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tech-for-india/open-source"
+  }
+}
