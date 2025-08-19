@@ -68,7 +68,7 @@ export default function AdminChatsPage() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-border">
+                <tr className="border-b border-gray-200">
                   <th className="text-left p-3">Title</th>
                   <th className="text-left p-3">User</th>
                   <th className="text-left p-3">Class</th>
@@ -80,7 +80,7 @@ export default function AdminChatsPage() {
               </thead>
               <tbody>
                 {chats.map((chat) => (
-                  <tr key={chat.id} className="border-b border-border">
+                  <tr key={chat.id} className="border-b border-gray-200">
                     <td className="p-3 font-medium">{chat.title}</td>
                     <td className="p-3">
                       <div>

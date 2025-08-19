@@ -1,6 +1,6 @@
 import { useAuth } from '../hooks/useAuth';
 import { useTheme } from '../hooks/useTheme';
-import { Moon, Sun, LogOut, Users, MessageSquare, BarChart3, Settings } from 'lucide-react';
+import { Moon, Sun, LogOut, Users, MessageSquare, BarChart3, Settings, Lock } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 interface LayoutProps {
@@ -21,7 +21,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-card">
+      <header className="border-b border-gray-200 bg-card">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <h1 className="text-xl font-bold">AI School Assistant</h1>
@@ -97,6 +97,16 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
               </>
             )}
+
+            <Link
+              to="/change-password"
+              className={`flex items-center space-x-3 p-3 rounded-md transition-colors ${
+                location.pathname === '/change-password' ? 'bg-primary text-primary-foreground' : 'hover:bg-accent'
+              }`}
+            >
+              <Lock className="h-5 w-5" />
+              <span>Change Password</span>
+            </Link>
 
             {user?.role === 'SUPERADMIN' && (
               <Link

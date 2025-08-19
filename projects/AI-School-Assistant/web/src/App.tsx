@@ -39,7 +39,9 @@ function AppRoutes() {
       
       <Route path="/change-password" element={
         <ProtectedRoute>
-          <ChangePasswordPage />
+          <Layout>
+            <ChangePasswordPage />
+          </Layout>
         </ProtectedRoute>
       } />
       

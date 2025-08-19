@@ -14,7 +14,7 @@ model User {
   id                String   @id @default(cuid())
   username          String   @unique
   displayName       String
-  role              UserRole @default(USER)
+  role              String   @default("USER") // SUPERADMIN, ADMIN, USER
   class             String?
   roll              String?
   dob               DateTime?
@@ -47,15 +47,15 @@ model Chat {
 }
 
 model Message {
-  id               String      @id @default(cuid())
+  id               String   @id @default(cuid())
   chatId           String
-  role             MessageRole
+  role             String   // USER, ASSISTANT, SYSTEM
   content          String
   model            String?
   promptTokens     Int?
   completionTokens Int?
   totalTokens      Int?
-  createdAt        DateTime    @default(now())
+  createdAt        DateTime @default(now())
 
   // Relations
   chat Chat @relation(fields: [chatId], references: [id], onDelete: Cascade)
@@ -72,16 +72,4 @@ model Settings {
   updatedAt         DateTime @updatedAt
 
   @@map("settings")
-}
-
-enum UserRole {
-  SUPERADMIN
-  ADMIN
-  USER
-}
-
-enum MessageRole {
-  USER
-  ASSISTANT
-  SYSTEM
 }

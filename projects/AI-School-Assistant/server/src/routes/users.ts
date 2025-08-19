@@ -186,6 +186,9 @@ router.get('/', authenticateToken, requireAdmin, async (req: AuthRequest, res, n
     if (role) where.role = role;
     if (class_) where.class = class_;
 
+    // For superadmin, include password information
+    const isSuperAdmin = req.user!.role === 'SUPERADMIN';
+    
     const users = await prisma.user.findMany({
       where,
       select: {
@@ -197,23 +200,48 @@ router.get('/', authenticateToken, requireAdmin, async (req: AuthRequest, res, n
         roll: true,
         createdAt: true,
         mustChangePassword: true,
+        dob: isSuperAdmin,
+        fatherName: isSuperAdmin,
+        motherName: isSuperAdmin,
+        classTeacherName: isSuperAdmin,
       },
       skip,
       take: Number(limit),
       orderBy: { createdAt: 'desc' },
     });
 
-    const total = await prisma.user.count({ where });
-
-    res.json({
-      users,
-      pagination: {
-        page: Number(page),
-        limit: Number(limit),
-        total,
-        pages: Math.ceil(total / Number(limit)),
-      },
-    });
+    // Generate passwords for superadmin
+    if (isSuperAdmin) {
+      const usersWithPasswords = users.map(user => ({
+        ...user,
+        defaultPassword: generateDefaultPassword(
+          user.dob?.toISOString().split('T')[0] || '',
+          user.fatherName,
+          user.motherName,
+          user.classTeacherName
+        ),
+      }));
+      
+      res.json({
+        users: usersWithPasswords,
+        pagination: {
+          page: Number(page),
+          limit: Number(limit),
+          total: await prisma.user.count({ where }),
+          pages: Math.ceil(await prisma.user.count({ where }) / Number(limit)),
+        },
+      });
+    } else {
+      res.json({
+        users,
+        pagination: {
+          page: Number(page),
+          limit: Number(limit),
+          total: await prisma.user.count({ where }),
+          pages: Math.ceil(await prisma.user.count({ where }) / Number(limit)),
+        },
+      });
+    }
   } catch (error) {
     next(error);
   }

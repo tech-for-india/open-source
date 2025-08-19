@@ -5,6 +5,8 @@ import { Moon, Sun, Lock } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export default function ChangePasswordPage() {
+  console.log('ChangePasswordPage component rendering');
+  
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -42,29 +44,19 @@ export default function ChangePasswordPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="w-full max-w-md">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="flex justify-center mb-4">
-            <Lock className="h-16 w-16 text-primary" />
-          </div>
-          <h1 className="text-3xl font-bold mb-2">Change Password</h1>
-          <p className="text-muted-foreground">You must change your password to continue</p>
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="text-center">
+        <div className="flex justify-center mb-4">
+          <Lock className="h-16 w-16 text-primary" />
         </div>
+        <h1 className="text-3xl font-bold mb-2">Change Password</h1>
+        <p className="text-muted-foreground">Update your account password</p>
+        <p className="text-sm text-blue-500 mt-2">Debug: Page is loading</p>
+      </div>
 
-        {/* Theme Toggle */}
-        <div className="flex justify-end mb-4">
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-md hover:bg-accent"
-            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </button>
-        </div>
-
-        {/* Change Password Form */}
+      {/* Change Password Form */}
+      <div className="max-w-md mx-auto">
         <div className="card">
           <div className="card-content">
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -122,13 +114,6 @@ export default function ChangePasswordPage() {
               </button>
             </form>
           </div>
-        </div>
-
-        {/* Footer */}
-        <div className="text-center mt-8 text-sm text-muted-foreground">
-          <p>Author: Shekhar Bhattacharya (for techies only)</p>
-          <p>Free for Non-Profit schools and educational institutes</p>
-          <p className="mt-2 text-xs">LAN-only deployment</p>
         </div>
       </div>
     </div>

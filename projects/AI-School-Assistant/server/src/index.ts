@@ -42,8 +42,8 @@ app.use(cors({
   credentials: true
 }));
 
-// Rate limiting
-app.use(rateLimiter);
+// Rate limiting - Temporarily disabled for development
+// app.use(rateLimiter);
 
 // Health check
 app.get('/api/health', (req, res) => {
