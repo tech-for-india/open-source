@@ -1,0 +1,15 @@
+name: Tech For India
+description: Free open-source projects and learning resources for developers
+url: https://tech-for-india.github.io
+baseurl: /open-source
+
+# Build settings
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-feed
+
+# Exclude from processing
+exclude:
+  - .gitignore
+  - README.md
+  - .github/
