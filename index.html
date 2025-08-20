@@ -3,8 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech For India - Free Projects for Everyone</title>
+    <title>Tech for India: Code for the Nation. Build for the Future.</title>
+    <meta name="description" content="An open-source movement creating free tools and software for underprivileged children in India. Join us in building a fairer tomorrow.">
+    <meta property="og:title" content="Tech for India: Code for the Nation. Build for the Future.">
+    <meta property="og:description" content="An open-source movement creating free tools and software for underprivileged children in India.">
+    <meta property="og:type" content="website">
+    <meta name="github-owner" content="tech-for-india">
+    <meta name="github-repo" content="open-source">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            /* Modern 2025 Color Palette with Psychology */
+            --primary-blue: #1E40AF;      /* Trust, Information */
+            --secondary-teal: #0F766E;    /* Calm, Background */
+            --accent-orange: #EA580C;     /* Energy, CTA */
+            --warm-red: #DC2626;          /* Action, Urgency */
+            --soft-gray: #F8FAFC;         /* Clean, Background */
+            --dark-gray: #1F2937;         /* Text, Depth */
+            --light-gray: #E5E7EB;        /* Borders, Subtle */
+            --white: #FFFFFF;
+            --black: #000000;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+            --gradient-warm: linear-gradient(135deg, var(--accent-orange) 0%, var(--warm-red) 100%);
+            --gradient-soft: linear-gradient(135deg, var(--soft-gray) 0%, #E0E7FF 100%);
+            
+            /* Shadows */
+            --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.12);
+            --shadow-large: 0 20px 40px rgba(0, 0, 0, 0.15);
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 8rem;
+            --space-2xl: 12rem;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,226 +55,2781 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: var(--dark-gray);
+            background: var(--white);
+            overflow-x: hidden;
+            font-size: 16px;
+            cursor: none; /* Hide default cursor for custom cursor */
+        }
+
+        /* Custom Playful Cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-warm);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor.hover {
+            transform: scale(2);
+            background: var(--gradient-primary);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .top-bar {
+            height: 4px;
+            background: var(--gradient-warm);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 var(--space-md);
         }
 
+        /* Custom Illustrations */
+        .illustration {
+            position: absolute;
+            opacity: 0.08;
+            z-index: -1;
+            transition: all 0.8s ease;
+        }
+
+        .illustration-1 {
+            top: 10%;
+            right: 5%;
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .illustration-2 {
+            bottom: 20%;
+            left: 5%;
+            width: 150px;
+            height: 150px;
+            background: var(--gradient-warm);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        /* Section-specific illustrations */
+        .section-illustration {
+            position: absolute;
+            opacity: 0.06;
+            z-index: -1;
+            transition: all 0.8s ease;
+            pointer-events: none;
+        }
+
+        .mission-illustration {
+            top: 15%;
+            right: 8%;
+            width: 180px;
+            height: 180px;
+            background: var(--gradient-primary);
+            border-radius: 20% 80% 80% 20% / 20% 20% 80% 80%;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .work-illustration {
+            bottom: 25%;
+            left: 10%;
+            width: 160px;
+            height: 160px;
+            background: var(--gradient-warm);
+            border-radius: 50%;
+            animation: float 9s ease-in-out infinite reverse;
+        }
+
+        .projects-illustration {
+            top: 20%;
+            left: 5%;
+            width: 140px;
+            height: 140px;
+            background: var(--gradient-primary);
+            border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .updates-illustration {
+            bottom: 15%;
+            right: 12%;
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-warm);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .contribute-illustration {
+            top: 30%;
+            right: 15%;
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .faq-illustration {
+            bottom: 20%;
+            left: 8%;
+            width: 130px;
+            height: 130px;
+            background: var(--gradient-warm);
+            border-radius: 25% 75% 75% 25% / 25% 25% 75% 75%;
+            animation: float 7s ease-in-out infinite reverse;
+        }
+
+        /* SVG Illustrations */
+        .svg-illustration {
+            position: absolute;
+            opacity: 0.05;
+            z-index: -1;
+            transition: all 0.8s ease;
+            pointer-events: none;
+        }
+
+        .mission-svg {
+            top: 10%;
+            left: 5%;
+            width: 200px;
+            height: 200px;
+        }
+
+        .work-svg {
+            bottom: 10%;
+            right: 8%;
+            width: 180px;
+            height: 180px;
+        }
+
+        .projects-svg {
+            top: 15%;
+            right: 10%;
+            width: 160px;
+            height: 160px;
+        }
+
+        .updates-svg {
+            bottom: 20%;
+            left: 15%;
+            width: 140px;
+            height: 140px;
+        }
+
+        .contribute-svg {
+            top: 25%;
+            left: 10%;
+            width: 120px;
+            height: 120px;
+        }
+
+        .faq-svg {
+            bottom: 15%;
+            right: 5%;
+            width: 150px;
+            height: 150px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @keyframes gentle-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.05; }
+            50% { transform: scale(1.05); opacity: 0.08; }
+        }
+
+        .svg-illustration {
+            animation: gentle-pulse 8s ease-in-out infinite;
+        }
+
+        /* Header with Full-Page Image Header */
         header {
-            text-align: center;
-            padding: 60px 0;
-            color: white;
+            position: relative;
+            background: var(--gradient-soft);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
         }
 
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.05;
+            z-index: 0;
         }
 
-        .subtitle {
-            font-size: 1.5rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
+        .header-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
         }
 
-        .main-content {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md) 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 10;
         }
 
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            color: #667eea;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-
-        .section p {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: #555;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 30px;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: var(--dark-gray);
             text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             transition: all 0.3s ease;
-            margin: 20px 10px;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        .logo:hover {
+            transform: scale(1.05);
         }
 
-        .github-link {
-            background: #24292e;
-        }
-
-        .github-link:hover {
-            background: #2f363d;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: white;
+        .logo-icon {
+            width: 24px;
+            height: 24px;
             opacity: 0.8;
         }
 
-        .social-links {
-            margin-top: 20px;
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
         }
 
-        .social-links a {
-            color: white;
-            margin: 0 10px;
-            font-size: 1.5rem;
+        .nav-links a {
+            color: var(--dark-gray);
             text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-warm);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .github-star {
+            background: var(--gradient-warm);
+            color: var(--white);
+            padding: var(--space-xs) var(--space-sm);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-radius: 25px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .github-star:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-large);
+        }
+
+        /* Hero Section with Parallax */
+        .hero {
+            padding: var(--space-2xl) 0 var(--space-xl);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: var(--space-lg);
+            line-height: 1.1;
+            color: var(--dark-gray);
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: var(--dark-gray);
+            margin-bottom: var(--space-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            font-weight: 400;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .btn {
+            padding: var(--space-sm) var(--space-lg);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient-warm);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--dark-gray);
+            border: 2px solid var(--dark-gray);
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark-gray);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-large);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections with Modern Spacing */
+        section {
+            padding: var(--space-2xl) 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            position: relative;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: var(--space-md);
+            color: var(--dark-gray);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        /* Mission Section */
+        .mission {
+            background: var(--wired-white);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-content {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                transparent 100%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .mission-content::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            animation: shine 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        /* Enhanced text styling for better contrast on glass */
+        .mission-content .quote {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .mission-content .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .mission-content .quote-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--accent-orange) 50%, 
+                transparent 100%);
+            margin: 1rem auto;
+            border-radius: 1px;
+        }
+
+        .mission-content .quote-author {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            opacity: 0.8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mission-content .vision-list li {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            margin: 0.5rem 0;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mission-content .vision-list li:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        /* Mission Text Glass Effects */
+        .mission-text {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .mission-text p {
+            color: var(--dark-gray);
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .mission-content h3 {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0 1rem 0;
+            display: inline-block;
+            color: var(--dark-gray);
+            font-weight: 700;
+        }
+
+        /* Quotes Auto Scroll Container */
+        .quotes-scroll-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 1rem 0;
+            margin: 2rem 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .quotes-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .quotes-scroll {
+            display: inline-flex;
+            gap: 2rem;
+            animation: scroll-quotes 30s linear infinite;
+        }
+
+        .quotes-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        .quote-scroll-item {
+            min-width: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-scroll-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                transparent 100%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .quote-scroll-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            animation: shine 4s ease-in-out infinite;
+        }
+
+        @keyframes scroll-quotes {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Projects Glass Effects */
+        .projects-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1) !important;
+            transition: all 0.3s ease !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                transparent 100%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            animation: shine 4s ease-in-out infinite;
+        }
+
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+            transform: translateY(-5px) !important;
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.2) !important;
+        }
+
+        .project-card h3 {
+            color: var(--dark-gray) !important;
+            font-weight: 700 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-description {
+            color: var(--dark-gray) !important;
+            opacity: 0.9 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-tags .tag {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(10px) !important;
+            color: var(--dark-gray) !important;
+            font-weight: 600 !important;
+        }
+
+        /* Updates Glass Effects */
+        .updates-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .updates-header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .update-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 1rem 0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .update-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .update-message {
+            color: var(--dark-gray) !important;
+            font-weight: 600 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .update-meta {
+            color: var(--dark-gray) !important;
+            opacity: 0.8 !important;
+        }
+
+        .update-time {
+            color: var(--dark-gray) !important;
+            opacity: 0.7 !important;
+        }
+
+        .refresh-btn {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(10px) !important;
+            color: var(--dark-gray) !important;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .refresh-btn:hover {
+            background: rgba(255, 255, 255, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .pagination {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pagination-btn {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(10px) !important;
+            color: var(--dark-gray) !important;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+            transform: translateY(-1px) !important;
+        }
+
+        .pagination-btn:disabled {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: rgba(0, 0, 0, 0.3) !important;
+        }
+
+        /* Mission Background Illustration */
+        .mission-bg-illustration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+            transition: all 0.8s ease;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(1.1) contrast(1.2);
+        }
+
+        .mission-bg-illustration:hover {
+            opacity: 0.35;
+            transform: scale(1.02);
+            filter: brightness(1.2) contrast(1.3);
+        }
+
+        /* Subtle animation for the background image */
+        .mission-bg-illustration {
+            animation: gentle-float 15s ease-in-out infinite;
+        }
+
+        /* How We Work Background Illustration */
+        .work-bg-illustration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+            transition: all 0.8s ease;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(1.1) contrast(1.2);
+        }
+
+        .work-bg-illustration:hover {
+            opacity: 0.35;
+            transform: scale(1.02);
+            filter: brightness(1.2) contrast(1.3);
+        }
+
+        /* Subtle animation for the work background image */
+        .work-bg-illustration {
+            animation: gentle-float 15s ease-in-out infinite;
+        }
+
+        /* Projects Background Illustration */
+        .projects-bg-illustration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+            transition: all 0.8s ease;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(1.1) contrast(1.2);
+        }
+
+        .projects-bg-illustration:hover {
+            opacity: 0.35;
+            transform: scale(1.02);
+            filter: brightness(1.2) contrast(1.3);
+        }
+
+        /* Subtle animation for the projects background image */
+        .projects-bg-illustration {
+            animation: gentle-float 15s ease-in-out infinite;
+        }
+
+        /* Updates Background Illustration */
+        .updates-bg-illustration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+            transition: all 0.8s ease;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(1.1) contrast(1.2);
+        }
+
+        .updates-bg-illustration:hover {
+            opacity: 0.35;
+            transform: scale(1.02);
+            filter: brightness(1.2) contrast(1.3);
+        }
+
+        /* Subtle animation for the updates background image */
+        .updates-bg-illustration {
+            animation: gentle-float 15s ease-in-out infinite;
+        }
+
+        @keyframes gentle-float {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+                filter: brightness(1.1) contrast(1.2);
+            }
+            50% { 
+                transform: translateY(-5px) scale(1.01);
+                filter: brightness(1.2) contrast(1.25);
+            }
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--wired-red);
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-left: 4px solid var(--wired-red);
+            background: var(--wired-gray);
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        .mission-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .vision-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .vision-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+
+        .vision-list li::before {
+            content: '→';
+            color: var(--wired-red);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        /* How We Work */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--wired-white);
+            padding: 2rem;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--wired-red);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--wired-black);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Projects */
+        .projects-container {
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .projects-grid {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 1rem 0;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .projects-grid::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .project-card {
+            min-width: 320px;
+            flex-shrink: 0;
+            background: var(--wired-white);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .scroll-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .scroll-btn {
+            background: var(--wired-black);
+            color: var(--wired-white);
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+        }
+
+        .scroll-btn:hover {
+            background: var(--wired-red);
+        }
+
+        .scroll-btn:disabled {
+            background: var(--wired-light-gray);
+            color: var(--text-light);
+            cursor: not-allowed;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--wired-red);
+        }
+
+        .project-card h3 {
+            color: var(--wired-black);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--wired-gray);
+            color: var(--wired-black);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Updates */
+        .updates {
+            background: var(--wired-gray);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .updates-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .updates-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--wired-black);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .refresh-btn {
+            background: var(--wired-black);
+            color: var(--wired-white);
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+        }
+
+        .refresh-btn:hover {
+            background: var(--wired-red);
+            transform: translateY(-1px);
+        }
+
+        .updates-container {
+            position: relative;
+        }
+
+        .updates-list {
+            list-style: none;
+        }
+
+        .update-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .update-content {
+            flex: 1;
+        }
+
+        .update-message {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+            color: var(--wired-black);
+        }
+
+        .update-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .update-time {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            white-space: nowrap;
+            margin-left: 1rem;
+            font-weight: 400;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pagination-btn {
+            background: var(--wired-black);
+            color: var(--wired-white);
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+        }
+
+        .pagination-btn:hover {
+            background: var(--wired-red);
+        }
+
+        .pagination-btn:disabled {
+            background: var(--wired-light-gray);
+            color: var(--text-light);
+            cursor: not-allowed;
+        }
+
+        .pagination-info {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: var(--space-md);
+            padding: var(--space-lg);
+            border: 1px solid var(--light-gray);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            background: var(--white);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-medium);
+            border-color: var(--accent-orange);
+            transform: translateY(-2px);
+        }
+
+        .faq-question {
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: var(--space-sm);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .faq-answer {
+            color: var(--dark-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--wired-black);
+            color: var(--wired-white);
+            padding: 3rem 0 2rem;
+            text-align: center;
+            border-top: 3px solid var(--wired-red);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-content p {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--wired-white);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--wired-white);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links a:hover {
+            color: var(--wired-red);
+            transform: translateY(-1px);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+            .nav-links {
+                display: none;
             }
             
-            .subtitle {
-                font-size: 1.2rem;
+            .hero h1 {
+                font-size: 2.8rem;
             }
             
-            .main-content {
-                padding: 20px;
+            .section-header h2 {
+                font-size: 2.2rem;
             }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .quote {
+                font-size: 1.4rem;
+                padding: 2rem;
+            }
+
+            /* Hide illustrations on mobile for better performance */
+            .section-illustration,
+            .svg-illustration {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            /* Reduce illustration sizes on tablets */
+            .section-illustration {
+                width: 60%;
+                height: 60%;
+            }
+            
+            .svg-illustration {
+                width: 70%;
+                height: 70%;
+            }
+        }
+
+        /* Loading states */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .error {
+            background: var(--wired-gray);
+            color: var(--wired-red);
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid var(--wired-red);
+            font-weight: 400;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🚀 Tech For India</h1>
-            <p class="subtitle">Free Projects for Everyone</p>
-            <p>Empowering developers with open-source solutions</p>
-        </header>
-
-        <div class="main-content">
-            <div class="section">
-                <h2>About This Project</h2>
-                <p>Welcome to <strong>Tech For India</strong> - a collection of free, open-source projects designed to help developers, students, and tech enthusiasts learn, grow, and contribute to the global technology community.</p>
-                <p>Our mission is to provide accessible, high-quality code examples and complete projects that anyone can use, modify, and learn from.</p>
+    <div class="top-bar"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    
+    <header>
+        <div class="header-background"></div>
+        <div class="illustration illustration-1"></div>
+        <div class="illustration illustration-2"></div>
+        
+        <nav class="container">
+            <a href="#" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Tech for India
+            </a>
+            <div class="nav-links">
+                <a href="#mission">Mission</a>
+                <a href="#projects">Projects</a>
+                <a href="#updates">Updates</a>
+                <a href="#contribute">Contribute</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://github.com/tech-for-india/open-source" class="github-star">⭐ Star on GitHub</a>
             </div>
-
-            <div class="section">
-                <h2>What You'll Find Here</h2>
-                <div class="features">
-                    <div class="feature-card">
-                        <h3>🎯 Complete Projects</h3>
-                        <p>Full-stack applications, web apps, mobile apps, and more ready to use and customize.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>📚 Learning Resources</h3>
-                        <p>Step-by-step tutorials, documentation, and best practices for various technologies.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>🔧 Code Examples</h3>
-                        <p>Reusable code snippets, components, and utilities for common development tasks.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>🌍 Open Source</h3>
-                        <p>All projects are open source, allowing you to contribute, fork, and distribute freely.</p>
+        </nav>
+        
+        <div class="header-content">
+            <div class="container">
+                <div class="hero">
+                    <h1>Code for the Nation.<br/> Build for the Future.</h1>
+                    <p class="subtitle">An open-source movement creating free tools and software for underprivileged children. Not for profit. Not for fame. Simply to give back.</p>
+                    <div class="cta-buttons">
+                        <a href="#contribute" class="btn btn-primary">Join the Movement</a>
+                        <a href="#projects" class="btn btn-secondary">Explore Projects</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <div class="section">
-                <h2>Technologies Covered</h2>
-                <p>Our projects span across various technologies and frameworks:</p>
-                <ul style="list-style: none; padding: 20px 0;">
-                    <li style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 8px;">🌐 <strong>Web Development:</strong> HTML, CSS, JavaScript, React, Vue, Angular</li>
-                    <li style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 8px;">⚙️ <strong>Backend:</strong> Node.js, Python, Java, PHP, .NET</li>
-                    <li style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 8px;">📱 <strong>Mobile:</strong> React Native, Flutter, Native Android/iOS</li>
-                    <li style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 8px;">�� <strong>AI/ML:</strong> Python, TensorFlow, PyTorch, Scikit-learn</li>
-                    <li style="margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 8px;">☁️ <strong>Cloud:</strong> AWS, Azure, Google Cloud, Docker, Kubernetes</li>
-                </ul>
+    <main>
+
+        <section id="mission" class="mission">
+            <!-- Mission Background Illustration -->
+            <div class="mission-bg-illustration" style="background-image: url('assets/section_pic_1.png');"></div>
+            
+            <div class="container">
+                <!-- Mission Illustrations -->
+                <div class="section-illustration mission-illustration"></div>
+                <svg class="svg-illustration mission-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Children learning together -->
+                    <!-- Child 1 (left) -->
+                    <circle cx="60" cy="120" r="12" fill="url(#missionGradient)" opacity="0.3"/>
+                    <rect x="55" y="135" width="10" height="15" rx="5" fill="url(#missionGradient)" opacity="0.2"/>
+                    <!-- Child 2 (center) -->
+                    <circle cx="100" cy="120" r="12" fill="url(#missionGradient)" opacity="0.3"/>
+                    <rect x="95" y="135" width="10" height="15" rx="5" fill="url(#missionGradient)" opacity="0.2"/>
+                    <!-- Child 3 (right) -->
+                    <circle cx="140" cy="120" r="12" fill="url(#missionGradient)" opacity="0.3"/>
+                    <rect x="135" y="135" width="10" height="15" rx="5" fill="url(#missionGradient)" opacity="0.2"/>
+                    
+                    <!-- People coming together (hands joining) -->
+                    <path d="M50 100C50 100 60 90 80 90C100 90 110 100 110 100" stroke="url(#missionGradient)" stroke-width="3" fill="none" opacity="0.4"/>
+                    <path d="M90 100C90 100 100 90 120 90C140 90 150 100 150 100" stroke="url(#missionGradient)" stroke-width="3" fill="none" opacity="0.4"/>
+                    
+                    <!-- Educational elements -->
+                    <!-- Book/Tablet -->
+                    <rect x="70" y="80" width="60" height="40" rx="3" fill="url(#missionGradient)" opacity="0.2"/>
+                    <rect x="75" y="85" width="50" height="30" rx="2" fill="url(#missionGradient)" opacity="0.1"/>
+                    <line x1="80" y1="95" x2="120" y2="95" stroke="url(#missionGradient)" stroke-width="1" opacity="0.3"/>
+                    <line x1="80" y1="100" x2="110" y2="100" stroke="url(#missionGradient)" stroke-width="1" opacity="0.3"/>
+                    <line x1="80" y1="105" x2="115" y2="105" stroke="url(#missionGradient)" stroke-width="1" opacity="0.3"/>
+                    
+                    <!-- Lightbulb representing ideas and learning -->
+                    <path d="M100 50C100 50 90 40 90 30C90 25 95 20 100 20C105 20 110 25 110 30C110 40 100 50 100 50Z" fill="url(#missionGradient)" opacity="0.2"/>
+                    <path d="M100 50L100 60" stroke="url(#missionGradient)" stroke-width="2" opacity="0.3"/>
+                    
+                    <!-- Connection lines between children -->
+                    <line x1="72" y1="120" x2="88" y2="120" stroke="url(#missionGradient)" stroke-width="1" opacity="0.2"/>
+                    <line x1="112" y1="120" x2="128" y2="120" stroke="url(#missionGradient)" stroke-width="1" opacity="0.2"/>
+                    
+                    <!-- Small stars representing learning achievements -->
+                    <path d="M30 70L32 72L34 70L32 68L30 70Z" fill="url(#missionGradient)" opacity="0.3"/>
+                    <path d="M170 80L172 82L174 80L172 78L170 80Z" fill="url(#missionGradient)" opacity="0.3"/>
+                    <path d="M40 160L42 162L44 160L42 158L40 160Z" fill="url(#missionGradient)" opacity="0.3"/>
+                    
+                    <defs>
+                        <linearGradient id="missionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--primary-blue);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:var(--secondary-teal);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                
+                <div class="section-header mission-text">
+                    <h2>Mission</h2>
+                    <p>Empowering children through technology and education</p>
+                </div>
+                
+                <div class="mission-content">
+                    <div class="quote">
+                        <div class="quote-text">"The destiny of a nation is being shaped in its classrooms."</div>
+                        <div class="quote-line"></div>
+                        <div class="quote-author">Education Commission, 1966</div>
+                    </div>
+                    
+                    <div class="mission-text">
+                        <p><strong>Our Purpose:</strong> Use technology to empower children denied equal access to education.</p>
+                    </div>
+
+                    <h3>Our Vision:</h3>
+                    <ul class="vision-list">
+                        <li>Build open-source educational tools that reach every corner of the nation.</li>
+                        <li>Bridge the digital divide with free, multilingual, lightweight software.</li>
+                        <li>Show that nation-building can happen alongside our daily jobs—one line of code at a time.</li>
+                    </ul>
+
+                    <!-- Auto-scrolling Quotes Section -->
+                    <div class="quotes-scroll-container">
+                        <div class="quotes-scroll">
+                            <div class="quote-scroll-item">
+                                <div class="quote-text">"Dream, dream, dream. Dreams transform into thoughts, and thoughts result in action."</div>
+                                <div class="quote-line"></div>
+                                <div class="quote-author">A.P.J. Abdul Kalam</div>
+                            </div>
+                            <div class="quote-scroll-item">
+                                <div class="quote-text">"The best way to find yourself is to lose yourself in the service of others."</div>
+                                <div class="quote-line"></div>
+                                <div class="quote-author">M.K. Gandhi</div>
+                            </div>
+                            <div class="quote-scroll-item">
+                                <div class="quote-text">"I measure the progress of a community by the degree of progress which women have achieved."</div>
+                                <div class="quote-line"></div>
+                                <div class="quote-author">B.R. Ambedkar</div>
+                            </div>
+                            <div class="quote-scroll-item">
+                                <div class="quote-text">"Education is the most powerful weapon which you can use to change the world."</div>
+                                <div class="quote-line"></div>
+                                <div class="quote-author">Nelson Mandela</div>
+                            </div>
+                            <div class="quote-scroll-item">
+                                <div class="quote-text">"The future belongs to those who believe in the beauty of their dreams."</div>
+                                <div class="quote-line"></div>
+                                <div class="quote-author">Eleanor Roosevelt</div>
+                            </div>
+                            <div class="quote-scroll-item">
+                                <div class="quote-text">"Technology is just a tool. In terms of getting the kids working together and motivating them, the teacher is the most important."</div>
+                                <div class="quote-line"></div>
+                                <div class="quote-author">Bill Gates</div>
+                            </div>
+                            <div class="quote-scroll-item">
+                                <div class="quote-text">"The only way to do great work is to love what you do."</div>
+                                <div class="quote-line"></div>
+                                <div class="quote-author">Steve Jobs</div>
+                            </div>
+                            <div class="quote-scroll-item">
+                                <div class="quote-text">"Innovation distinguishes between a leader and a follower."</div>
+                                <div class="quote-line"></div>
+                                <div class="quote-author">Steve Jobs</div>
+                            </div>
+                            <!-- Duplicate first few quotes for seamless loop -->
+                            <div class="quote-scroll-item">
+                                <div class="quote-text">"Dream, dream, dream. Dreams transform into thoughts, and thoughts result in action."</div>
+                                <div class="quote-line"></div>
+                                <div class="quote-author">A.P.J. Abdul Kalam</div>
+                            </div>
+                            <div class="quote-scroll-item">
+                                <div class="quote-text">"The best way to find yourself is to lose yourself in the service of others."</div>
+                                <div class="quote-line"></div>
+                                <div class="quote-author">M.K. Gandhi</div>
+                            </div>
+                            <div class="quote-scroll-item">
+                                <div class="quote-text">"I measure the progress of a community by the degree of progress which women have achieved."</div>
+                                <div class="quote-line"></div>
+                                <div class="quote-author">B.R. Ambedkar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="section" style="text-align: center;">
-                <h2>Get Started</h2>
-                <p>Ready to explore our projects? Start by browsing our repository and find something that interests you!</p>
-                <a href="#" class="cta-button github-link">📁 Browse Projects</a>
-                <a href="#" class="cta-button">🤝 Contribute</a>
+        <section id="how-we-work">
+            <!-- How We Work Background Illustration -->
+            <div class="work-bg-illustration" style="background-image: url('assets/section_pic_2.png');"></div>
+            
+            <div class="container">
+                <!-- Work Illustrations -->
+                <div class="section-illustration work-illustration"></div>
+                <svg class="svg-illustration work-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Collaborative hands -->
+                    <path d="M50 120C50 120 60 110 80 110C100 110 110 120 110 120" stroke="url(#workGradient)" stroke-width="3" fill="none" opacity="0.4"/>
+                    <path d="M90 120C90 120 100 110 120 110C140 110 150 120 150 120" stroke="url(#workGradient)" stroke-width="3" fill="none" opacity="0.4"/>
+                    <!-- Gear representing collaboration -->
+                    <circle cx="100" cy="100" r="25" fill="none" stroke="url(#workGradient)" stroke-width="2" opacity="0.3"/>
+                    <circle cx="100" cy="100" r="15" fill="none" stroke="url(#workGradient)" stroke-width="2" opacity="0.2"/>
+                    <path d="M100 75L105 85L115 85L110 95L115 105L105 105L100 115L95 105L85 105L90 95L85 85L95 85L100 75Z" fill="url(#workGradient)" opacity="0.2"/>
+                    
+                    <defs>
+                        <linearGradient id="workGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--accent-orange);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:var(--warm-red);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                
+                <div class="section-header mission-text">
+                    <h2>How We Work</h2>
+                    <p>Building the future, one contribution at a time</p>
+                </div>
+                <div class="features-grid mission-text">
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Collaborative Development</h3>
+                        <p>Contribute code, design, docs; every skill counts. We believe in the power of collective intelligence.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔓</div>
+                        <h3>Open Access</h3>
+                        <p>Everything we build is free and community-maintained. No barriers, no restrictions, just pure collaboration.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌱</div>
+                        <h3>Sustainable Impact</h3>
+                        <p>Rural-ready: low bandwidth, low hardware, multilingual. Built for the real India.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚖️</div>
+                        <h3>Parallel to Life</h3>
+                        <p>Contribute without quitting your job; consistency over intensity. Small steps, big impact.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="section">
-                <h2>How to Contribute</h2>
-                <p>We welcome contributions from developers of all skill levels! Here's how you can help:</p>
-                <ol style="padding-left: 20px; margin: 20px 0;">
-                    <li style="margin: 10px 0;"><strong>Fork the repository</strong> and create your own copy</li>
-                    <li style="margin: 10px 0;"><strong>Create a new branch</strong> for your feature or fix</li>
-                    <li style="margin: 10px 0;"><strong>Make your changes</strong> and test thoroughly</li>
-                    <li style="margin: 10px 0;"><strong>Submit a pull request</strong> with a clear description</li>
-                    <li style="margin: 10px 0;"><strong>Join our community</strong> discussions and help others</li>
-                </ol>
+        <section id="projects">
+            <!-- Projects Background Illustration -->
+            <div class="projects-bg-illustration" style="background-image: url('assets/pic5.png');"></div>
+            
+            <div class="container">
+                <!-- Projects Illustrations -->
+                <div class="section-illustration projects-illustration"></div>
+                <svg class="svg-illustration projects-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Code brackets representing projects -->
+                    <path d="M60 80L80 100L60 120" stroke="url(#projectsGradient)" stroke-width="3" fill="none" opacity="0.4"/>
+                    <path d="M140 80L120 100L140 120" stroke="url(#projectsGradient)" stroke-width="3" fill="none" opacity="0.4"/>
+                    <!-- Code lines -->
+                    <line x1="85" y1="90" x2="115" y2="90" stroke="url(#projectsGradient)" stroke-width="2" opacity="0.3"/>
+                    <line x1="85" y1="100" x2="105" y2="100" stroke="url(#projectsGradient)" stroke-width="2" opacity="0.3"/>
+                    <line x1="85" y1="110" x2="125" y2="110" stroke="url(#projectsGradient)" stroke-width="2" opacity="0.3"/>
+                    <!-- Project boxes -->
+                    <rect x="40" y="140" width="30" height="20" rx="2" fill="url(#projectsGradient)" opacity="0.2"/>
+                    <rect x="80" y="140" width="30" height="20" rx="2" fill="url(#projectsGradient)" opacity="0.2"/>
+                    <rect x="120" y="140" width="30" height="20" rx="2" fill="url(#projectsGradient)" opacity="0.2"/>
+                    
+                    <defs>
+                        <linearGradient id="projectsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--primary-blue);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:var(--secondary-teal);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                
+                <div class="section-header">
+                    <h2>Our Projects</h2>
+                    <p>Open-source tools making education accessible worldwide</p>
+                </div>
+                <div class="projects-container">
+                    <div id="projects-grid" class="projects-grid">
+                        <div class="loading">Loading projects...</div>
+                    </div>
+                    <div class="scroll-controls" style="display: none;">
+                        <button class="scroll-btn" id="scroll-left">← Previous</button>
+                        <button class="scroll-btn" id="scroll-right">Next →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="updates" class="updates">
+            <!-- Updates Background Illustration -->
+            <div class="updates-bg-illustration" style="background-image: url('assets/pic7.png');"></div>
+            
+            <div class="container">
+                <!-- Updates Illustrations -->
+                <div class="section-illustration updates-illustration"></div>
+                <svg class="svg-illustration updates-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Activity timeline -->
+                    <line x1="50" y1="50" x2="50" y2="150" stroke="url(#updatesGradient)" stroke-width="2" opacity="0.3"/>
+                    <!-- Activity dots -->
+                    <circle cx="50" cy="60" r="4" fill="url(#updatesGradient)" opacity="0.4"/>
+                    <circle cx="50" cy="80" r="4" fill="url(#updatesGradient)" opacity="0.4"/>
+                    <circle cx="50" cy="100" r="4" fill="url(#updatesGradient)" opacity="0.4"/>
+                    <circle cx="50" cy="120" r="4" fill="url(#updatesGradient)" opacity="0.4"/>
+                    <circle cx="50" cy="140" r="4" fill="url(#updatesGradient)" opacity="0.4"/>
+                    <!-- Activity lines -->
+                    <line x1="60" y1="60" x2="140" y2="60" stroke="url(#updatesGradient)" stroke-width="1" opacity="0.2"/>
+                    <line x1="60" y1="80" x2="130" y2="80" stroke="url(#updatesGradient)" stroke-width="1" opacity="0.2"/>
+                    <line x1="60" y1="100" x2="120" y2="100" stroke="url(#updatesGradient)" stroke-width="1" opacity="0.2"/>
+                    <line x1="60" y1="120" x2="110" y2="120" stroke="url(#updatesGradient)" stroke-width="1" opacity="0.2"/>
+                    <line x1="60" y1="140" x2="100" y2="140" stroke="url(#updatesGradient)" stroke-width="1" opacity="0.2"/>
+                    
+                    <defs>
+                        <linearGradient id="updatesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--accent-orange);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:var(--warm-red);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                
+                <div class="section-header">
+                    <h2>Live Updates</h2>
+                    <p>Latest activity from our projects</p>
+                </div>
+                <div class="updates-header">
+                    <h3>Recent Activity</h3>
+                    <button class="refresh-btn" onclick="loadUpdates()">🔄 Refresh</button>
+                </div>
+                <div class="updates-container">
+                    <div id="updates-list" class="updates-list">
+                        <div class="loading">Loading updates...</div>
+                    </div>
+                    <div class="pagination" style="display: none;">
+                        <button class="pagination-btn" id="prev-page">← Previous</button>
+                        <span class="pagination-info" id="page-info">Page 1 of 1</span>
+                        <button class="pagination-btn" id="next-page">Next →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contribute">
+            <div class="container">
+                <!-- Contribute Illustrations -->
+                <div class="section-illustration contribute-illustration"></div>
+                <svg class="svg-illustration contribute-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- People joining hands -->
+                    <circle cx="80" cy="120" r="15" fill="url(#contributeGradient)" opacity="0.3"/>
+                    <circle cx="120" cy="120" r="15" fill="url(#contributeGradient)" opacity="0.3"/>
+                    <!-- Connecting lines -->
+                    <path d="M95 120L105 120" stroke="url(#contributeGradient)" stroke-width="3" opacity="0.4"/>
+                    <!-- Arrow pointing up -->
+                    <path d="M100 80L100 100M95 95L100 100L105 95" stroke="url(#contributeGradient)" stroke-width="2" fill="none" opacity="0.4"/>
+                    <!-- Plus sign representing contribution -->
+                    <line x1="100" y1="60" x2="100" y2="70" stroke="url(#contributeGradient)" stroke-width="2" opacity="0.3"/>
+                    <line x1="95" y1="65" x2="105" y2="65" stroke="url(#contributeGradient)" stroke-width="2" opacity="0.3"/>
+                    
+                    <defs>
+                        <linearGradient id="contributeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--primary-blue);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:var(--secondary-teal);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                
+                <div class="section-header">
+                    <h2>Join the Movement</h2>
+                    <p>Join Tech for India as a co-builder of India's future. Every PR, every doc, every test is a brick in a fairer tomorrow.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary" id="open-issues-btn">Open Issues</a>
+                    <a href="#" class="btn btn-secondary" id="good-first-issue-btn">Good First Issue</a>
+                    <a href="#" class="btn btn-secondary" id="contributing-guide-btn">Contribution Guide</a>
+                </div>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <code style="background: var(--border-light); padding: 1rem; border-radius: 6px; display: inline-block;">
+                        git clone https://github.com/tech-for-india/open-source.git
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <div class="container">
+                <!-- FAQ Illustrations -->
+                <div class="section-illustration faq-illustration"></div>
+                <svg class="svg-illustration faq-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Question mark -->
+                    <path d="M100 40C85 40 70 50 70 65C70 80 85 90 100 90C115 90 130 80 130 65C130 50 115 40 100 40Z" fill="url(#faqGradient)" opacity="0.3"/>
+                    <path d="M100 100L100 120M100 130L100 140" stroke="url(#faqGradient)" stroke-width="3" fill="none" opacity="0.4"/>
+                    <!-- Speech bubbles -->
+                    <rect x="30" y="80" width="40" height="30" rx="5" fill="url(#faqGradient)" opacity="0.2"/>
+                    <rect x="130" y="100" width="40" height="30" rx="5" fill="url(#faqGradient)" opacity="0.2"/>
+                    <!-- Dots representing questions -->
+                    <circle cx="50" cy="95" r="2" fill="url(#faqGradient)" opacity="0.3"/>
+                    <circle cx="150" cy="115" r="2" fill="url(#faqGradient)" opacity="0.3"/>
+                    
+                    <defs>
+                        <linearGradient id="faqGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--accent-orange);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:var(--warm-red);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Everything you need to know about contributing</p>
+                </div>
+                <div id="faq-container" class="faq-container">
+                    <div class="loading">Loading FAQs...</div>
+                </div>
+                
+                <!-- FAQ Submission Form -->
+                <div class="faq-submission" style="margin-top: 3rem; padding: 2rem; background: var(--soft-gray); border-radius: 12px; border: 1px solid var(--light-gray);">
+                    <h3 style="margin-bottom: 1rem; color: var(--dark-gray); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Submit a New Question</h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--dark-gray); opacity: 0.8; font-size: 0.95rem;">Have a question that's not answered here? Help us improve by submitting it!</p>
+                    
+                    <form id="faq-submission-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div>
+                            <label for="new-question" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark-gray); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Your Question *</label>
+                            <input 
+                                type="text" 
+                                id="new-question" 
+                                name="question" 
+                                required 
+                                placeholder="What would you like to know?"
+                                style="width: 100%; padding: 0.75rem; border: 1px solid var(--light-gray); border-radius: 6px; font-size: 1rem; font-family: inherit; transition: border-color 0.3s ease;"
+                            >
+                        </div>
+                        
+                        <div>
+                            <label for="new-answer" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark-gray); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Suggested Answer (Optional)</label>
+                            <textarea 
+                                id="new-answer" 
+                                name="answer" 
+                                rows="3" 
+                                placeholder="If you have a suggested answer, share it here..."
+                                style="width: 100%; padding: 0.75rem; border: 1px solid var(--light-gray); border-radius: 6px; font-size: 1rem; font-family: inherit; resize: vertical; transition: border-color 0.3s ease;"
+                            ></textarea>
+                        </div>
+                        
+                        <div>
+                            <label for="submitter-name" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark-gray); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Your Name (Optional)</label>
+                            <input 
+                                type="text" 
+                                id="submitter-name" 
+                                name="name" 
+                                placeholder="How should we credit you?"
+                                style="width: 100%; padding: 0.75rem; border: 1px solid var(--light-gray); border-radius: 6px; font-size: 1rem; font-family: inherit; transition: border-color 0.3s ease;"
+                            >
+                        </div>
+                        
+                        <div style="display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem;">
+                            <button 
+                                type="submit" 
+                                style="background: var(--gradient-warm); color: var(--white); border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;"
+                            >
+                                Submit Question
+                            </button>
+                            <button 
+                                type="button" 
+                                id="clear-faq-form"
+                                style="background: transparent; color: var(--dark-gray); border: 1px solid var(--dark-gray); padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;"
+                            >
+                                Clear Form
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div id="faq-submission-message" style="margin-top: 1rem; padding: 1rem; border-radius: 6px; display: none; font-weight: 500;"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>Built by the community. Tech for India.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" id="github-link">GitHub</a>
+                    <a href="#" id="code-of-conduct-link">Code of Conduct</a>
+                    <a href="#" id="license-link">License</a>
+                </div>
             </div>
         </div>
+    </footer>
 
-        <footer>
-            <p>Made with ❤️ for the global tech community</p>
-            <p>© 2024 Tech For India. All projects are open source and free to use.</p>
-            <div class="social-links">
-                <a href="#" title="GitHub">📦</a>
-                <a href="#" title="Twitter">🐦</a>
-                <a href="#" title="LinkedIn">💼</a>
-                <a href="#" title="Discord">💬</a>
-            </div>
-        </footer>
-    </div>
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // GitHub API functions
+        const owner = document.querySelector('meta[name="github-owner"]').content;
+        const repo = document.querySelector('meta[name="github-repo"]').content;
+        
+        // Get the actual repository URL
+        async function getRepositoryUrl() {
+            // Use the correct repository URL
+            return `https://github.com/${owner}/${repo}`;
+        }
+
+        // Global variables for pagination and scrolling
+        let allUpdates = [];
+        let currentPage = 1;
+        const updatesPerPage = 10;
+
+        async function fetchProjects() {
+            try {
+                const projectsGrid = document.getElementById('projects-grid');
+                const repoUrl = await getRepositoryUrl();
+                
+                // Try to fetch from GitHub API first
+                try {
+                    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/projects`);
+                    if (response.ok) {
+                        const projects = await response.json();
+                        
+                        if (projects.length === 0) {
+                            projectsGrid.innerHTML = '<p>No projects found yet. Be the first to contribute!</p>';
+                            return;
+                        }
+
+                        const projectCards = await Promise.all(projects.map(async (project) => {
+                            let description = 'Community project—details coming soon.';
+                            let tags = ['community'];
+
+                            try {
+                                const readmeResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/projects/${project.name}/README.md`);
+                                if (readmeResponse.ok) {
+                                    const readmeData = await readmeResponse.json();
+                                    const readmeContent = atob(readmeData.content);
+                                    const firstLines = readmeContent.split('\n').slice(0, 3).join(' ');
+                                    if (firstLines.length > 0) {
+                                        description = firstLines.substring(0, 150) + (firstLines.length > 150 ? '...' : '');
+                                    }
+                                }
+                            } catch (e) {
+                                // Use default description
+                            }
+
+                            // Simple tag detection
+                            if (project.name.toLowerCase().includes('web')) tags.push('web');
+                            if (project.name.toLowerCase().includes('android')) tags.push('android');
+                            if (project.name.toLowerCase().includes('ai')) tags.push('ai');
+                            if (project.name.toLowerCase().includes('curriculum')) tags.push('curriculum');
+                            if (project.name.toLowerCase().includes('school')) tags.push('education');
+                            if (project.name.toLowerCase().includes('chat')) tags.push('chat');
+                            if (project.name.toLowerCase().includes('assistant')) tags.push('ai');
+
+                            return `
+                                <a href="${repoUrl}/tree/main/projects/${project.name}" class="project-card" target="_blank" rel="noopener noreferrer">
+                                    <h3>${project.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</h3>
+                                    <p class="project-description">${description}</p>
+                                    <div class="project-tags">
+                                        ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                                    </div>
+                                </a>
+                            `;
+                        }));
+
+                        projectsGrid.innerHTML = projectCards.join('');
+                        setupProjectScroll();
+                        return;
+                    }
+                } catch (apiError) {
+                    console.log('GitHub API failed, falling back to local data');
+                }
+
+                // Fallback: Use local project data
+                const localProjects = [
+                    {
+                        name: 'AI-School-Assistant',
+                        description: 'A lightweight, self-hosted AI chat system designed for schools to provide AI assistance to students and teachers within their local network.',
+                        tags: ['ai', 'education', 'chat', 'nodejs', 'react'],
+                        path: 'projects/AI-School-Assistant'
+                    }
+                ];
+
+                if (localProjects.length === 0) {
+                    projectsGrid.innerHTML = '<p>No projects found yet. Be the first to contribute!</p>';
+                    return;
+                }
+
+                const projectCards = localProjects.map(project => {
+                    return `
+                        <a href="${repoUrl}/tree/main/projects/${project.name}" class="project-card" target="_blank" rel="noopener noreferrer">
+                            <h3>${project.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</h3>
+                            <p class="project-description">${project.description}</p>
+                            <div class="project-tags">
+                                ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                            </div>
+                        </a>
+                    `;
+                });
+
+                projectsGrid.innerHTML = projectCards.join('');
+                setupProjectScroll();
+            } catch (error) {
+                document.getElementById('projects-grid').innerHTML = `
+                    <div class="error">
+                        Unable to load projects. Please check back later.
+                    </div>
+                `;
+            }
+        }
+
+        async function fetchUpdates() {
+            try {
+                const updatesList = document.getElementById('updates-list');
+                
+                // Try to fetch from GitHub API first
+                try {
+                    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?path=projects&per_page=15`);
+                    if (response.ok) {
+                        const commits = await response.json();
+                        
+                        if (commits.length === 0) {
+                            updatesList.innerHTML = '<p>No recent activity. Be the first to contribute!</p>';
+                            return;
+                        }
+
+                        const updateItems = commits.map(commit => {
+                            const date = new Date(commit.commit.author.date);
+                            const timeAgo = getTimeAgo(date);
+                            const message = commit.commit.message.split('\n')[0].substring(0, 60);
+                            
+                            return `
+                                <div class="update-item">
+                                    <div class="update-content">
+                                        <div class="update-message">${message}${message.length >= 60 ? '...' : ''}</div>
+                                        <div class="update-meta">by ${commit.commit.author.name}</div>
+                                    </div>
+                                    <div class="update-time">${timeAgo}</div>
+                                </div>
+                            `;
+                        });
+
+                        allUpdates = commits;
+                        displayUpdatesPage(1);
+                        return;
+                    }
+                } catch (apiError) {
+                    console.log('GitHub API failed, falling back to local data');
+                }
+
+                // Fallback: Use local update data
+                const localUpdates = [
+                    {
+                        message: 'Added AI-School-Assistant project with complete documentation',
+                        author: 'Shekhar Bhattacharya',
+                        time: '2 days ago'
+                    },
+                    {
+                        message: 'Updated README with deployment instructions and security features',
+                        author: 'Shekhar Bhattacharya',
+                        time: '1 week ago'
+                    },
+                    {
+                        message: 'Added role-based authentication and admin panel',
+                        author: 'Shekhar Bhattacharya',
+                        time: '2 weeks ago'
+                    },
+                    {
+                        message: 'Implemented chat interface with OpenAI integration',
+                        author: 'Shekhar Bhattacharya',
+                        time: '3 weeks ago'
+                    },
+                    {
+                        message: 'Initial project setup with React frontend and Node.js backend',
+                        author: 'Shekhar Bhattacharya',
+                        time: '1 month ago'
+                    }
+                ];
+
+                allUpdates = localUpdates;
+                displayUpdatesPage(1);
+            } catch (error) {
+                document.getElementById('updates-list').innerHTML = `
+                    <div class="error">
+                        Unable to load updates. Please check back later.
+                    </div>
+                `;
+            }
+        }
+
+        function getTimeAgo(date) {
+            const now = new Date();
+            const diffInSeconds = Math.floor((now - date) / 1000);
+            
+            if (diffInSeconds < 60) return 'just now';
+            if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
+            if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
+            if (diffInSeconds < 2592000) return `${Math.floor(diffInSeconds / 86400)}d ago`;
+            return `${Math.floor(diffInSeconds / 2592000)}mo ago`;
+        }
+
+        function displayUpdatesPage(page) {
+            const updatesList = document.getElementById('updates-list');
+            const pagination = document.querySelector('.pagination');
+            const pageInfo = document.getElementById('page-info');
+            const prevBtn = document.getElementById('prev-page');
+            const nextBtn = document.getElementById('next-page');
+
+            if (allUpdates.length === 0) {
+                updatesList.innerHTML = '<p>No recent activity. Be the first to contribute!</p>';
+                pagination.style.display = 'none';
+                return;
+            }
+
+            const totalPages = Math.ceil(allUpdates.length / updatesPerPage);
+            const startIndex = (page - 1) * updatesPerPage;
+            const endIndex = startIndex + updatesPerPage;
+            const pageUpdates = allUpdates.slice(startIndex, endIndex);
+
+            const updateItems = pageUpdates.map(update => {
+                const date = update.commit ? new Date(update.commit.author.date) : null;
+                const timeAgo = date ? getTimeAgo(date) : update.time;
+                const message = update.commit ? update.commit.message.split('\n')[0].substring(0, 60) : update.message;
+                const author = update.commit ? update.commit.author.name : update.author;
+                
+                return `
+                    <div class="update-item">
+                        <div class="update-content">
+                            <div class="update-message">${message}${message.length >= 60 ? '...' : ''}</div>
+                            <div class="update-meta">by ${author}</div>
+                        </div>
+                        <div class="update-time">${timeAgo}</div>
+                    </div>
+                `;
+            });
+
+            updatesList.innerHTML = updateItems.join('');
+            
+            // Update pagination
+            pageInfo.textContent = `Page ${page} of ${totalPages}`;
+            prevBtn.disabled = page === 1;
+            nextBtn.disabled = page === totalPages;
+            
+            if (totalPages > 1) {
+                pagination.style.display = 'flex';
+            } else {
+                pagination.style.display = 'none';
+            }
+        }
+
+        function setupProjectScroll() {
+            const projectsGrid = document.getElementById('projects-grid');
+            const scrollControls = document.querySelector('.scroll-controls');
+            const scrollLeftBtn = document.getElementById('scroll-left');
+            const scrollRightBtn = document.getElementById('scroll-right');
+
+            // Check if scrolling is needed
+            if (projectsGrid.scrollWidth > projectsGrid.clientWidth) {
+                scrollControls.style.display = 'flex';
+            } else {
+                scrollControls.style.display = 'none';
+            }
+
+            // Scroll left
+            scrollLeftBtn.addEventListener('click', () => {
+                projectsGrid.scrollBy({
+                    left: -400,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Scroll right
+            scrollRightBtn.addEventListener('click', () => {
+                projectsGrid.scrollBy({
+                    left: 400,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Update button states on scroll
+            projectsGrid.addEventListener('scroll', () => {
+                scrollLeftBtn.disabled = projectsGrid.scrollLeft === 0;
+                scrollRightBtn.disabled = projectsGrid.scrollLeft >= projectsGrid.scrollWidth - projectsGrid.clientWidth;
+            });
+        }
+
+        function loadUpdates() {
+            const refreshBtn = document.querySelector('.refresh-btn');
+            refreshBtn.textContent = '⏳ Loading...';
+            fetchUpdates().finally(() => {
+                refreshBtn.textContent = '🔄 Refresh';
+            });
+        }
+
+        // Pagination event listeners
+        document.getElementById('prev-page').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayUpdatesPage(currentPage);
+            }
+        });
+
+        document.getElementById('next-page').addEventListener('click', () => {
+            const totalPages = Math.ceil(allUpdates.length / updatesPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayUpdatesPage(currentPage);
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Set up dynamic GitHub links
+        async function setupGitHubLinks() {
+            const repoUrl = await getRepositoryUrl();
+            
+            // Set up CTA buttons
+            document.getElementById('open-issues-btn').href = `${repoUrl}/issues`;
+            document.getElementById('good-first-issue-btn').href = `${repoUrl}/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22`;
+            document.getElementById('contributing-guide-btn').href = `${repoUrl}/blob/main/CONTRIBUTING.md`;
+            
+            // Set up footer links
+            document.getElementById('github-link').href = repoUrl;
+            document.getElementById('code-of-conduct-link').href = `${repoUrl}/blob/main/CODE_OF_CONDUCT.md`;
+            document.getElementById('license-link').href = `${repoUrl}/blob/main/LICENSE`;
+        }
+
+        // Custom Cursor
+        function initCustomCursor() {
+            const cursor = document.querySelector('.custom-cursor');
+            
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+            
+            // Add hover effect to interactive elements
+            const interactiveElements = document.querySelectorAll('a, button, .btn, .project-card, .feature-card');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                });
+            });
+        }
+
+        // Parallax Effect
+        function initParallax() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.illustration, .section-illustration, .svg-illustration');
+                
+                parallaxElements.forEach((el, index) => {
+                    const speed = 0.3 + (index * 0.05);
+                    const direction = index % 2 === 0 ? 1 : -1;
+                    el.style.transform = `translateY(${scrolled * speed * direction}px) rotate(${scrolled * 0.01 * direction}deg)`;
+                });
+            });
+        }
+
+        // Mission Background Interaction
+        function initMissionBackgroundInteraction() {
+            const missionSection = document.getElementById('mission');
+            const bgIllustration = document.querySelector('.mission-bg-illustration');
+            
+            if (!missionSection || !bgIllustration) return;
+
+            missionSection.addEventListener('mousemove', (e) => {
+                const rect = missionSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Calculate percentage position
+                const xPercent = (x / rect.width) * 100;
+                const yPercent = (y / rect.height) * 100;
+                
+                // Subtle movement based on cursor position
+                const moveX = (xPercent - 50) * 0.03;
+                const moveY = (yPercent - 50) * 0.03;
+                
+                // Apply parallax effect to background position
+                bgIllustration.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
+            });
+
+            // Reset position when mouse leaves
+            missionSection.addEventListener('mouseleave', () => {
+                bgIllustration.style.backgroundPosition = 'center';
+            });
+
+            // Add click interaction for the entire background
+            bgIllustration.addEventListener('click', () => {
+                // Add a subtle pulse effect
+                bgIllustration.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    bgIllustration.style.transform = 'scale(1)';
+                }, 300);
+            });
+        }
+
+        // How We Work Background Interaction
+        function initWorkBackgroundInteraction() {
+            const workSection = document.getElementById('how-we-work');
+            const bgIllustration = document.querySelector('.work-bg-illustration');
+            
+            if (!workSection || !bgIllustration) return;
+
+            workSection.addEventListener('mousemove', (e) => {
+                const rect = workSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Calculate percentage position
+                const xPercent = (x / rect.width) * 100;
+                const yPercent = (y / rect.height) * 100;
+                
+                // Subtle movement based on cursor position
+                const moveX = (xPercent - 50) * 0.03;
+                const moveY = (yPercent - 50) * 0.03;
+                
+                // Apply parallax effect to background position
+                bgIllustration.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
+            });
+
+            // Reset position when mouse leaves
+            workSection.addEventListener('mouseleave', () => {
+                bgIllustration.style.backgroundPosition = 'center';
+            });
+
+            // Add click interaction for the entire background
+            bgIllustration.addEventListener('click', () => {
+                // Add a subtle pulse effect
+                bgIllustration.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    bgIllustration.style.transform = 'scale(1)';
+                }, 300);
+            });
+        }
+
+        // Projects Background Interaction
+        function initProjectsBackgroundInteraction() {
+            const projectsSection = document.getElementById('projects');
+            const bgIllustration = document.querySelector('.projects-bg-illustration');
+            
+            if (!projectsSection || !bgIllustration) return;
+
+            projectsSection.addEventListener('mousemove', (e) => {
+                const rect = projectsSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Calculate percentage position
+                const xPercent = (x / rect.width) * 100;
+                const yPercent = (y / rect.height) * 100;
+                
+                // Subtle movement based on cursor position
+                const moveX = (xPercent - 50) * 0.03;
+                const moveY = (yPercent - 50) * 0.03;
+                
+                // Apply parallax effect to background position
+                bgIllustration.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
+            });
+
+            // Reset position when mouse leaves
+            projectsSection.addEventListener('mouseleave', () => {
+                bgIllustration.style.backgroundPosition = 'center';
+            });
+
+            // Add click interaction for the entire background
+            bgIllustration.addEventListener('click', () => {
+                // Add a subtle pulse effect
+                bgIllustration.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    bgIllustration.style.transform = 'scale(1)';
+                }, 300);
+            });
+        }
+
+        // Updates Background Interaction
+        function initUpdatesBackgroundInteraction() {
+            const updatesSection = document.getElementById('updates');
+            const bgIllustration = document.querySelector('.updates-bg-illustration');
+            
+            if (!updatesSection || !bgIllustration) return;
+
+            updatesSection.addEventListener('mousemove', (e) => {
+                const rect = updatesSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Calculate percentage position
+                const xPercent = (x / rect.width) * 100;
+                const yPercent = (y / rect.height) * 100;
+                
+                // Subtle movement based on cursor position
+                const moveX = (xPercent - 50) * 0.03;
+                const moveY = (yPercent - 50) * 0.03;
+                
+                // Apply parallax effect to background position
+                bgIllustration.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
+            });
+
+            // Reset position when mouse leaves
+            updatesSection.addEventListener('mouseleave', () => {
+                bgIllustration.style.backgroundPosition = 'center';
+            });
+
+            // Add click interaction for the entire background
+            bgIllustration.addEventListener('click', () => {
+                // Add a subtle pulse effect
+                bgIllustration.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    bgIllustration.style.transform = 'scale(1)';
+                }, 300);
+            });
+        }
+
+        // FAQ functionality
+        let allFaqs = [];
+        let currentFaqPage = 1;
+        const faqsPerPage = 5;
+
+        async function fetchFaqs() {
+            try {
+                const faqContainer = document.getElementById('faq-container');
+                
+                // Try to fetch from local JSON file
+                try {
+                    const response = await fetch('data/faqs.json');
+                    if (response.ok) {
+                        const data = await response.json();
+                        allFaqs = data.faqs || [];
+                        
+                        if (allFaqs.length === 0) {
+                            faqContainer.innerHTML = '<p>No FAQs available at the moment.</p>';
+                            return;
+                        }
+
+                        displayFaqsPage(1);
+                        return;
+                    }
+                } catch (jsonError) {
+                    console.log('Local JSON failed, using sample FAQs');
+                }
+
+                // Fallback: Use sample FAQs
+                const sampleFaqs = [
+                    {
+                        id: 1,
+                        question: "Is this only for developers?",
+                        answer: "No. Designers, educators, translators, and anyone passionate about education technology is welcome. Every skill contributes to our mission."
+                    },
+                    {
+                        id: 2,
+                        question: "Paid or volunteer?",
+                        answer: "100% open source, volunteer-driven. We believe in the power of community and shared purpose over monetary incentives."
+                    },
+                    {
+                        id: 3,
+                        question: "Will this take too much time?",
+                        answer: "Contribute when you can; small, consistent contributions matter more than large, infrequent ones. Even 30 minutes a week makes a difference."
+                    },
+                    {
+                        id: 4,
+                        question: "Where is the impact?",
+                        answer: "Rural classrooms, community centers, low-resource schools across India. We focus on reaching the most underserved communities."
+                    },
+                    {
+                        id: 5,
+                        question: "How can I contribute if I'm not technical?",
+                        answer: "We need designers, educators, translators, content writers, and community managers. Every skill set is valuable for our mission."
+                    },
+                    {
+                        id: 6,
+                        question: "What technologies do you use?",
+                        answer: "We use a variety of technologies including React, Node.js, Python, and more. The focus is on creating accessible, lightweight solutions."
+                    },
+                    {
+                        id: 7,
+                        question: "How do you ensure quality?",
+                        answer: "All contributions go through peer review, testing, and community feedback. We maintain high standards while being welcoming to newcomers."
+                    },
+                    {
+                        id: 8,
+                        question: "Can I suggest new project ideas?",
+                        answer: "Absolutely! We welcome project suggestions that align with our mission of educational technology for underprivileged children."
+                    }
+                ];
+
+                allFaqs = sampleFaqs;
+                displayFaqsPage(1);
+            } catch (error) {
+                document.getElementById('faq-container').innerHTML = `
+                    <div class="error">
+                        Unable to load FAQs. Please check back later.
+                    </div>
+                `;
+            }
+        }
+
+        function displayFaqsPage(page) {
+            const faqContainer = document.getElementById('faq-container');
+            
+            if (allFaqs.length === 0) {
+                faqContainer.innerHTML = '<p>No FAQs available at the moment.</p>';
+                return;
+            }
+
+            const totalPages = Math.ceil(allFaqs.length / faqsPerPage);
+            const startIndex = (page - 1) * faqsPerPage;
+            const endIndex = startIndex + faqsPerPage;
+            const pageFaqs = allFaqs.slice(startIndex, endIndex);
+
+            const faqItems = pageFaqs.map(faq => `
+                <div class="faq-item">
+                    <div class="faq-question">${faq.question}</div>
+                    <div class="faq-answer">${faq.answer}</div>
+                </div>
+            `).join('');
+
+            // Add pagination if needed
+            let paginationHtml = '';
+            if (totalPages > 1) {
+                paginationHtml = `
+                    <div class="pagination" style="margin-top: 2rem;">
+                        <button class="pagination-btn" id="faq-prev-page" ${page === 1 ? 'disabled' : ''}>← Previous</button>
+                        <span class="pagination-info">Page ${page} of ${totalPages}</span>
+                        <button class="pagination-btn" id="faq-next-page" ${page === totalPages ? 'disabled' : ''}>Next →</button>
+                    </div>
+                `;
+            }
+
+            faqContainer.innerHTML = faqItems + paginationHtml;
+
+            // Add event listeners for FAQ pagination
+            const prevBtn = document.getElementById('faq-prev-page');
+            const nextBtn = document.getElementById('faq-next-page');
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if (currentFaqPage > 1) {
+                        currentFaqPage--;
+                        displayFaqsPage(currentFaqPage);
+                    }
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    if (currentFaqPage < totalPages) {
+                        currentFaqPage++;
+                        displayFaqsPage(currentFaqPage);
+                    }
+                });
+            }
+        }
+
+        // FAQ Submission functionality
+        function setupFaqSubmission() {
+            const form = document.getElementById('faq-submission-form');
+            const clearBtn = document.getElementById('clear-faq-form');
+            const messageDiv = document.getElementById('faq-submission-message');
+
+            // Form submission
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const question = formData.get('question').trim();
+                const answer = formData.get('answer').trim();
+                const name = formData.get('name').trim();
+
+                if (!question) {
+                    showMessage('Please enter a question.', 'error');
+                    return;
+                }
+
+                // Show loading state
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Submitting...';
+                submitBtn.disabled = true;
+
+                try {
+                    // Simulate submission (in a real app, this would send to a server)
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    
+                    // Add to local FAQs array
+                    const newFaq = {
+                        id: allFaqs.length + 1,
+                        question: question,
+                        answer: answer || 'Thank you for your question! We will review and add an answer soon.',
+                        submittedBy: name || 'Anonymous'
+                    };
+
+                    allFaqs.unshift(newFaq); // Add to beginning
+                    
+                    // Refresh the display
+                    currentFaqPage = 1;
+                    displayFaqsPage(1);
+                    
+                    // Clear form
+                    form.reset();
+                    
+                    // Show success message
+                    showMessage('Thank you! Your question has been submitted successfully.', 'success');
+                    
+                    // Scroll to the new FAQ
+                    setTimeout(() => {
+                        document.getElementById('faq').scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
+                    
+                } catch (error) {
+                    showMessage('Sorry, there was an error submitting your question. Please try again.', 'error');
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+
+            // Clear form
+            clearBtn.addEventListener('click', () => {
+                form.reset();
+                hideMessage();
+            });
+
+            // Input focus effects
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.style.borderColor = 'var(--accent-orange)';
+                });
+                
+                input.addEventListener('blur', () => {
+                    input.style.borderColor = 'var(--light-gray)';
+                });
+            });
+        }
+
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('faq-submission-message');
+            messageDiv.textContent = message;
+            messageDiv.style.display = 'block';
+            
+            if (type === 'success') {
+                messageDiv.style.background = '#D1FAE5';
+                messageDiv.style.color = '#065F46';
+                messageDiv.style.border = '1px solid #10B981';
+            } else {
+                messageDiv.style.background = '#FEE2E2';
+                messageDiv.style.color = '#991B1B';
+                messageDiv.style.border = '1px solid #EF4444';
+            }
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                hideMessage();
+            }, 5000);
+        }
+
+        function hideMessage() {
+            const messageDiv = document.getElementById('faq-submission-message');
+            messageDiv.style.display = 'none';
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchProjects();
+            fetchUpdates();
+            fetchFaqs();
+            setupFaqSubmission();
+            setupGitHubLinks();
+            initCustomCursor();
+            initParallax();
+            initMissionBackgroundInteraction();
+            initWorkBackgroundInteraction();
+            initProjectsBackgroundInteraction();
+            initUpdatesBackgroundInteraction();
+        });
+    </script>
 </body>
 </html>
+
+

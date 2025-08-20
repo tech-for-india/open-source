@@ -1,0 +1,44 @@
+{
+  "faqs": [
+    {
+      "id": 1,
+      "question": "Is this only for developers?",
+      "answer": "No. Designers, educators, translators, and anyone passionate about education technology is welcome. Every skill contributes to our mission."
+    },
+    {
+      "id": 2,
+      "question": "Paid or volunteer?",
+      "answer": "100% open source, volunteer-driven. We believe in the power of community and shared purpose over monetary incentives."
+    },
+    {
+      "id": 3,
+      "question": "Will this take too much time?",
+      "answer": "Contribute when you can; small, consistent contributions matter more than large, infrequent ones. Even 30 minutes a week makes a difference."
+    },
+    {
+      "id": 4,
+      "question": "Where is the impact?",
+      "answer": "Rural classrooms, community centers, low-resource schools across India. We focus on reaching the most underserved communities."
+    },
+    {
+      "id": 5,
+      "question": "How can I contribute if I'm not technical?",
+      "answer": "We need designers, educators, translators, content writers, and community managers. Every skill set is valuable for our mission."
+    },
+    {
+      "id": 6,
+      "question": "What technologies do you use?",
+      "answer": "We use a variety of technologies including React, Node.js, Python, and more. The focus is on creating accessible, lightweight solutions."
+    },
+    {
+      "id": 7,
+      "question": "How do you ensure quality?",
+      "answer": "All contributions go through peer review, testing, and community feedback. We maintain high standards while being welcoming to newcomers."
+    },
+    {
+      "id": 8,
+      "question": "Can I suggest new project ideas?",
+      "answer": "Absolutely! We welcome project suggestions that align with our mission of educational technology for underprivileged children."
+    }
+  ]
+}
